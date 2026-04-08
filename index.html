@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luzain | Pure Silver</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Noto+Sans+Bengali:wght@300;400&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-brand">
+                <div class="small-logo-orb">
+                    <div class="small-orb-highlight"></div>
+                </div>
+                <span class="logo">LUZAIN</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#collection">Collection</a>
+                <a href="#" id="cartBtn" class="cart-link">Cart (<span id="cartCount">0</span>)</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <span class="toggle-text">— <span id="themeName">LIGHT</span> VERSION —</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="collection" class="collection-section">
+            <div class="collection-header">
+                <h2>Our Fragrances</h2>
+                <p>Discover the essence of Luzain.</p>
+            </div>
+            <!-- Products injected by JS -->
+            <div class="gallery" id="productGallery">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Luzain | Pure Silver. All rights reserved.</p>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Checkout</h2>
+            
+            <div id="cartItemsContainer" class="cart-items">
+                <!-- Items list JS injected -->
+                <p>Your cart is empty.</p>
+            </div>
+            
+            <div class="checkout-total">
+                <strong>Total: </strong> $<span id="cartTotalHtml">0.00</span>
+            </div>
+
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="custName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="custEmail" required placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label>Phone / WhatsApp Number</label>
+                    <input type="tel" id="custPhone" required placeholder="e.g. 017XXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea id="custAddress" required rows="3" placeholder="Enter full delivery address"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div class="radio-group" style="flex-direction: column; gap: 0.8rem;">
+                        <label><input type="radio" name="paymentMethod" value="Cash on Delivery" checked> Cash on Delivery</label>
+                        <label><input type="radio" name="paymentMethod" value="bKash (Send Money)"> bKash Send Money</label>
+                        <label><input type="radio" name="paymentMethod" value="Nagad (Send Money)"> Nagad Send Money</label>
+                    </div>
+                </div>
+
+                <div id="bkashDetails" style="display: none;" class="bkash-info">
+                    <p class="bkash-text">Please Send Money to: <strong>01334072456</strong> (Personal)</p>
+                    <input type="text" id="bkashTrxInfo" placeholder="Enter Transaction ID or Phone Number sent from">
+                </div>
+
+                <button type="submit" id="submitOrderBtn" class="submit-order-btn">Confirm Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content product-details-content">
+            <span class="close-btn" id="closeDetailsModal">&times;</span>
+            <div class="details-layout">
+                <div class="details-image" id="detailsImage"></div>
+                <div class="details-info">
+                    <h2 id="detailsName">Product Name</h2>
+                    <p class="price" id="detailsPrice">$0.00</p>
+                    <p class="description" id="detailsDescription">Product description.</p>
+                    <button class="add-to-cart" id="detailsAddToCart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
